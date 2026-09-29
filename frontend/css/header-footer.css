@@ -1,0 +1,72 @@
+:root {
+    --primary-color: #ffaa00;
+    /* Amarillo/naranja vivo de alta visibilidad */
+    --dark-bg: #121417;
+    /* Fondo carbón premium */
+    --card-dark: #1e2227;
+    --text-light: #f5f5f5;
+    --accent-green: #25d366;
+    /* Color WhatsApp */
+}
+
+.main-header {
+    background: linear-gradient(135deg, rgba(18, 20, 23, 0.95), rgba(30, 34, 39, 0.90)),
+        url('../assets/images/header-bg.jpg') center/cover no-repeat;
+    border-bottom: 3px solid var(--primary-color);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 30px;
+    background-color: rgba(0, 0, 0, 0.6);
+    font-size: 0.9rem;
+    color: var(--text-light);
+}
+
+.top-bar a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.btn-whatsapp {
+    background-color: var(--accent-green) !important;
+    color: #fff !important;
+    padding: 4px 10px;
+    border-radius: 4px;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.brand .logo {
+    height: 60px;
+}
+
+.brand-title {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--text-light);
+    letter-spacing: 1px;
+}
+
+.brand-subtitle {
+    font-size: 1rem;
+    font-weight: 900;
+    color: var(--primary-color);
+}
