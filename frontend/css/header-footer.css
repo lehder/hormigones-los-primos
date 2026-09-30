@@ -1,72 +1,613 @@
 :root {
-    --primary-color: #ffaa00;
-    /* Amarillo/naranja vivo de alta visibilidad */
-    --dark-bg: #121417;
-    /* Fondo carbón premium */
-    --card-dark: #1e2227;
-    --text-light: #f5f5f5;
-    --accent-green: #25d366;
-    /* Color WhatsApp */
+    --header-marine-deep: #0b1329;
+    /* Azul marino industrial oscuro */
+    --header-marine-light: #162447;
+    --accent-gold: #f59e0b;
+    /* Amarillo/oro construcción */
+    --text-white: #ffffff;
+    --transition: all 0.3s ease;
 }
 
-.main-header {
-    background: linear-gradient(135deg, rgba(18, 20, 23, 0.95), rgba(30, 34, 39, 0.90)),
-        url('../assets/images/header-bg.jpg') center/cover no-repeat;
-    border-bottom: 3px solid var(--primary-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+/* ============================================================== */
+/* FONDO COMPLETO DE ROMBOS / HEXÁGONOS 3D PARA TODO EL HEADER    */
+/* ============================================================== */
+
+.card-hero-header {
+    position: relative;
+    width: 100%;
+    color: var(--text-white, #ffffff);
+    overflow: hidden;
+
+    /* Color base carbón/grafito profundo */
+    background-color: #121417;
+
+    /* Patrón 3D de hexágonos y rombos idéntico al relieve de la tarjeta */
+    background-image:
+        /* Sombra de relieve en caras diagonales */
+        repeating-linear-gradient(60deg,
+            rgba(0, 0, 0, 0.45) 0px,
+            rgba(0, 0, 0, 0.45) 2px,
+            transparent 2px,
+            transparent 38px),
+        repeating-linear-gradient(120deg,
+            rgba(255, 255, 255, 0.08) 0px,
+            rgba(255, 255, 255, 0.08) 2px,
+            transparent 2px,
+            transparent 38px),
+        repeating-linear-gradient(0deg,
+            rgba(0, 0, 0, 0.35) 0px,
+            rgba(0, 0, 0, 0.35) 2px,
+            transparent 2px,
+            transparent 38px),
+        /* Iluminación central suave para dar profundidad 3D */
+        radial-gradient(circle at 50% 50%,
+            rgba(35, 39, 46, 0.9) 0%,
+            rgba(15, 17, 20, 0.98) 100%);
+
+    background-size: auto, auto, auto, 100% 100%;
 }
 
-.top-bar {
+/* 1. Menú Flotante */
+.header-nav {
+    position: relative;
+    z-index: 50;
+    padding: 18px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.nav-wrapper {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    padding: 8px 30px;
-    background-color: rgba(0, 0, 0, 0.6);
-    font-size: 0.9rem;
-    color: var(--text-light);
+    align-items: center;
 }
 
-.top-bar a {
-    color: var(--primary-color);
+.nav-logo-text {
+    font-size: 1.4rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    color: var(--text-white);
     text-decoration: none;
-    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.btn-whatsapp {
-    background-color: var(--accent-green) !important;
-    color: #fff !important;
-    padding: 4px 10px;
-    border-radius: 4px;
+.nav-list {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 25px;
 }
 
-.navbar {
+.nav-list a {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.nav-list a:hover,
+.nav-list a.active {
+    color: var(--accent-gold);
+}
+
+.admin-pill {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-weight: 700;
+}
+
+.admin-pill:hover {
+    background-color: var(--accent-gold);
+    color: #000 !important;
+    border-color: var(--accent-gold);
+}
+
+/* Dropdown */
+.dropdown-item {
+    position: relative;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--header-marine-light);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    list-style: none;
+    min-width: 230px;
+    border-radius: 6px;
+    padding: 8px 0;
+    display: none;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 10px 18px;
+    font-size: 0.85rem;
+}
+
+.dropdown-menu li a:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+    color: var(--accent-gold);
+}
+
+.dropdown-item:hover .dropdown-menu {
+    display: block;
+}
+
+.mobile-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.mobile-toggle span {
+    width: 26px;
+    height: 3px;
+    background-color: var(--text-white);
+}
+
+/* 2. Cuerpo del Header: Operario + Título Réplica */
+.card-hero-content {
+    position: relative;
+    z-index: 10;
+    padding: 40px 0 60px 0;
+}
+
+.hero-grid {
+    width: 90%;
+    max-width: 1250px;
+    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 15px 30px;
+    gap: 40px;
 }
 
-.brand {
+.hero-worker-col {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.worker-render {
+    width: 100%;
+    max-width: 440px;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.9));
+    border-radius: 50%;
+}
+
+.hero-title-col {
+    flex: 1.4;
+    text-align: right;
+}
+
+.brand-huge-title {
+    font-size: clamp(2.3rem, 5.2vw, 4.4rem);
+    font-weight: 900;
+    line-height: 1.08;
+    color: var(--text-white);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    text-shadow: 4px 4px 14px rgba(0, 0, 0, 0.9);
+}
+
+/* 3. Corte Curvado Inferior */
+.curve-divider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    margin-top: -1px;
+}
+
+.curve-divider svg {
+    display: block;
+    width: 100%;
+    height: 60px;
+}
+
+/* Footer Base */
+.main-footer {
+    background-color: #080d1a;
+    padding: 30px 0;
+    text-align: center;
+    color: #94a3b8;
+    font-size: 0.9rem;
+}
+
+/* ============================================================== */
+/* MEDIA QUERIES RESPONSIVE                                       */
+/* ============================================================== */
+@media (max-width: 992px) {
+    .hero-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-title-col {
+        text-align: center;
+    }
+
+    .brand-huge-title {
+        font-size: clamp(2rem, 6vw, 3.2rem);
+    }
+
+    .worker-render {
+        max-width: 320px;
+    }
+}
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--header-marine-deep);
+        flex-direction: column;
+        padding: 25px 0;
+        gap: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: none;
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .dropdown-menu {
+        position: static;
+        background: transparent;
+        border: none;
+        box-shadow: none;
+        text-align: center;
+    }
+
+    .curve-divider svg {
+        height: 35px;
+    }
+}
+
+
+/* ============================================================== */
+/* FOOTER PROFESIONAL INTEGRAL                                    */
+/* ============================================================== */
+
+.site-footer {
+    background-color: #070d18;
+    color: #cbd5e1;
+    border-top: 2px solid #1e293b;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+/* 1. Tira superior de contacto directo */
+.footer-top-strip {
+    background: linear-gradient(90deg, #0b1329 0%, #162447 100%);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 24px 0;
+}
+
+.strip-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.strip-text {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.brand .logo {
-    height: 60px;
+.strip-icon {
+    font-size: 2rem;
+    background-color: rgba(245, 158, 11, 0.15);
+    padding: 10px;
+    border-radius: 50%;
+    line-height: 1;
 }
 
-.brand-title {
+.strip-text strong {
+    font-size: 1.15rem;
+    color: #ffffff;
     display: block;
-    font-size: 1.2rem;
+}
+
+.strip-text p {
+    color: #94a3b8;
+    font-size: 0.9rem;
+    margin: 0;
+}
+
+.strip-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.strip-btn {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.88rem;
+    padding: 10px 18px;
+    border-radius: 6px;
+    transition: var(--transition);
+    display: inline-flex;
+    align-items: center;
+}
+
+.btn-wa-fabian {
+    background-color: #25d366;
+    color: #ffffff;
+}
+
+.btn-wa-fabian:hover {
+    background-color: #1eb954;
+    transform: translateY(-2px);
+}
+
+.btn-wa-oscar {
+    background-color: #f59e0b;
+    color: #0b1329;
+}
+
+.btn-wa-oscar:hover {
+    background-color: #d97706;
+    transform: translateY(-2px);
+}
+
+/* 2. Grid de 4 Columnas Principal */
+.footer-main-grid {
+    padding: 65px 0 45px 0;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+    gap: 40px;
+}
+
+.footer-col h4.col-title {
+    color: #ffffff;
+    font-size: 1.1rem;
     font-weight: 800;
-    color: var(--text-light);
+    margin-bottom: 22px;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+.footer-col h4.col-title::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 32px;
+    height: 2px;
+    background-color: #f59e0b;
+}
+
+/* Columna de Marca */
+.footer-brand-title {
+    font-size: 1.2rem;
+    font-weight: 900;
+    color: #ffffff;
+    line-height: 1.2;
+    margin-bottom: 14px;
     letter-spacing: 1px;
 }
 
-.brand-subtitle {
+.footer-brand-title span {
+    color: #f59e0b;
+}
+
+.brand-desc {
+    font-size: 0.9rem;
+    color: #94a3b8;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.social-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    text-decoration: none;
+    padding: 8px 14px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: var(--transition);
+}
+
+.social-pill:hover {
+    background-color: #e1306c;
+    border-color: #e1306c;
+    transform: translateY(-2px);
+}
+
+/* Listas de Enlaces */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: var(--transition);
+    display: inline-block;
+}
+
+.footer-links a:hover {
+    color: #f59e0b;
+    transform: translateX(4px);
+}
+
+.footer-admin-link {
+    color: #f59e0b !important;
+    font-weight: 700;
+}
+
+/* Columna de Contacto */
+.contact-card-item {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 12px 16px;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.contact-role {
+    display: block;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #f59e0b;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.contact-name {
+    display: block;
     font-size: 1rem;
-    font-weight: 900;
-    color: var(--primary-color);
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 4px;
+}
+
+.contact-tel {
+    color: #cbd5e1;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+.contact-tel:hover {
+    color: #f59e0b;
+}
+
+.web-domain {
+    margin-top: 15px;
+    font-size: 0.88rem;
+    color: #94a3b8;
+}
+
+.web-domain a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.web-domain a:hover {
+    color: #f59e0b;
+}
+
+/* 3. Barra Inferior Copyright */
+.footer-bottom-bar {
+    background-color: #040810;
+    padding: 20px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    font-size: 0.85rem;
+    color: #64748b;
+}
+
+.bottom-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.copyright-text strong {
+    color: #94a3b8;
+}
+
+.legal-links {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.legal-links a {
+    color: #64748b;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.legal-links a:hover {
+    color: #cbd5e1;
+}
+
+/* ============================================================== */
+/* RESPONSIVE MEDIA QUERIES DEL FOOTER                            */
+/* ============================================================== */
+
+@media (max-width: 992px) {
+    .footer-main-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+}
+
+@media (max-width: 768px) {
+    .strip-flex {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .strip-text {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .strip-actions {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .strip-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .footer-main-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
+        padding: 45px 0 35px 0;
+    }
+
+    .bottom-flex {
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+    }
 }
