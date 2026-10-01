@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pintura de Casas, Fachadas y Locales Comerciales | Los Primos</title>
+    <meta name="description"
+        content="Servicios profesionales de pintura interior y exterior para viviendas, chalets, fachadas y locales comerciales. Pinturas plásticas lavables, revestimientos impermeables y pintura epoxi.">
+
+    <!-- Estilos (subiendo dos niveles a ../../css/) -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/header-footer.css">
+    <link rel="stylesheet" href="../../css/services.css">
+
+    <style>
+        /* Estilos propios de la página de Pintura */
+        .service-hero-detail {
+            background-color: #0b1329;
+            background-image:
+                radial-gradient(ellipse at 70% 40%, rgba(22, 36, 71, 0.9), rgba(11, 19, 41, 0.98)),
+                repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 2px, transparent 2px, transparent 40px),
+                repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 2px, transparent 2px, transparent 40px);
+            padding: 60px 0 80px 0;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .service-hero-detail h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .service-hero-detail p {
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            max-width: 740px;
+            margin: 0 auto;
+        }
+
+        .detail-body-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .detail-text h2 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 18px;
+            font-weight: 900;
+        }
+
+        .detail-text p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .tech-specs-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #ec4899;
+        }
+
+        .tech-specs-card h3 {
+            font-size: 1.3rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            color: #0f172a;
+            font-weight: 800;
+            text-align: right;
+        }
+
+        /* Tipos de Trabajos de Pintura */
+        .painting-types-section {
+            background-color: #f8fafc;
+            padding: 80px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .types-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .type-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .type-card:hover {
+            transform: translateY(-5px);
+            border-color: #ec4899;
+        }
+
+        .type-card img {
+            width: 100%;
+            height: 190px;
+            object-fit: cover;
+        }
+
+        .type-card .t-body {
+            padding: 22px;
+        }
+
+        .type-card h4 {
+            font-size: 1.18rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .type-badge {
+            display: inline-block;
+            background-color: #fce7f3;
+            color: #be185d;
+            font-size: 0.75rem;
+            font-weight: 800;
+            padding: 3px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .type-card p {
+            color: #64748b;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        /* Proceso de Trabajo */
+        .process-steps-section {
+            padding: 80px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .step-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 24px;
+        }
+
+        .step-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #ec4899;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .step-box h4 {
+            font-size: 1.15rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .step-box p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Bloque */
+        .cta-service-box {
+            background: linear-gradient(135deg, #0b1329, #162447);
+            border-radius: 14px;
+            padding: 50px 30px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-service-box h3 {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .cta-service-box p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 620px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-service-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- NAVEGACIÓN SUPERIOR FLOTANTE                    -->
+    <!-- ============================================== -->
+    <header style="background-color: #0b1329; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <nav class="header-nav" style="padding: 18px 0;">
+            <div class="nav-wrapper">
+                <a href="../../index.html" class="nav-logo-text">LOS PRIMOS</a>
+
+                <button class="mobile-toggle" id="menuToggle" aria-label="Abrir Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-list" id="navLinks">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../../index.html#nosotros">Sobre Nosotros</a></li>
+                    <li class="dropdown-item">
+                        <a href="../../index.html#servicios" class="dropdown-toggle active">Servicios ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="hormigon-impreso.html">Hormigón Impreso</a></li>
+                            <li><a href="cesped-artificial.html">Césped Artificial</a></li>
+                            <li><a href="rehabilitacion-suelos.html">Mantenimiento de Suelos</a></li>
+                            <li><a href="pintura-casas-locales.html" class="active">Pintura de Casas y Locales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../login.html" class="admin-pill">Acceso Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero del Servicio -->
+    <section class="service-hero-detail">
+        <div class="container">
+            <span class="badge-tag">ACABADOS IMPECABLES Y PROTECCIÓN</span>
+            <h1>PINTURA DE CASAS Y LOCALES</h1>
+            <p>Servicio profesional de pintura interior y exterior con materiales de máxima cubrición, saneamiento
+                previo y acabados limpios y duraderos.</p>
+        </div>
+    </section>
+
+    <!-- Cuerpo de Detalles -->
+    <main class="detail-body-section">
+        <div class="container">
+
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>Transformación y Protección para Cada Superficie</h2>
+                    <p>
+                        En <strong>Hormigones y Pavimentos Los Primos</strong> completamos nuestras obras y reformas con
+                        un servicio especializado de <strong>pintura profesional</strong> tanto para chalets y viviendas
+                        residenciales como para locales comerciales, oficinas y naves industriales.
+                    </p>
+                    <p>
+                        Sabemos que la clave de una pintura duradera radica en la preparación previa. No nos limitamos a
+                        dar manos de pintura: tapamos y encintamos suelos, marcos y mobiliario, reparamos grietas,
+                        desconchones y humedades con masillas elásticas e imprimaciones fijadoras antes de aplicar las
+                        capas de terminación.
+                    </p>
+                    <p>
+                        Trabajamos con <strong>pinturas plásticas lavables de alta transpirabilidad</strong> para
+                        interiores, revestimientos impermeabilizantes elásticos para fachadas exteriores y resinas
+                        epoxídicas para garajes o suelos comerciales con alta exigencia mecánica.
+                    </p>
+                </div>
+
+                <!-- Ficha Técnica -->
+                <aside class="tech-specs-card">
+                    <h3>Ficha Técnica del Servicio</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Pintura Interior:</span>
+                        <span class="spec-value">Plástica lavable mate/satinada</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Pintura Exterior:</span>
+                        <span class="spec-value">Revestimiento acrílico y siloxánico</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Pavimentos y Parkings:</span>
+                        <span class="spec-value">Pintura epoxi bicomponente</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Preparación previa:</span>
+                        <span class="spec-value">Masillado, lijado e imprimación</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Protección del espacio:</span>
+                        <span class="spec-value">Encintado total y papel protector</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Garantía de acabado:</span>
+                        <span class="spec-value">Sin sombras, gotas ni manchas</span>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+        <!-- Secciones de Especialidades -->
+        <section class="painting-types-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="badge-tag">NUESTRAS ESPECIALIDADES</span>
+                    <h2>SOLUCIONES DE PINTURA A MEDIDA</h2>
+                    <p class="subtitle">Materiales específicos para cada estancia, fachada o pavimento</p>
+                </div>
+
+                <div class="types-grid">
+                    <!-- Tipo 1: Viviendas e Interiores -->
+                    <div class="type-card">
+                        <img src="https://images.unsplash.com/photo-1589939705384-5185137a7f0f?auto=format&fit=crop&w=500&q=80"
+                            alt="Pintura Interior de Casas y Chalets">
+                        <div class="t-body">
+                            <span class="type-badge">Viviendas</span>
+                            <h4>Pintura Interior de Casas</h4>
+                            <p>Eliminación de gota (alisado de paredes), aplicación de pinturas plásticas antimoho
+                                lavables y acabados sedosos en habitaciones, salones y techos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tipo 2: Fachadas y Exteriores -->
+                    <div class="type-card">
+                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=500&q=80"
+                            alt="Revestimiento de Fachadas y Exteriores">
+                        <div class="t-body">
+                            <span class="type-badge">Impermeabilización</span>
+                            <h4>Fachadas y Muros Exteriores</h4>
+                            <p>Revestimientos elásticos con puente de unión y protección hidrófuga que resisten la
+                                lluvia batiente, cambios bruscos de temperatura y hongos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tipo 3: Locales y Naves -->
+                    <div class="type-card">
+                        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=500&q=80"
+                            alt="Pintura de Locales y Naves Comerciales">
+                        <div class="t-body">
+                            <span class="type-badge">Comercial</span>
+                            <h4>Locales Comerciales y Naves</h4>
+                            <p>Renovación rápida con horarios adaptados para no interrumpir tu negocio. Pintura de
+                                techos industriales, paredes de pladur y señalización de suelos.</p>
+                        </div>
+                    </div>
+
+                    <!-- Tipo 4: Pintura Epoxi para Suelos -->
+                    <div class="type-card">
+                        <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=500&q=80"
+                            alt="Pintura Epoxi para Garajes y Parkings">
+                        <div class="t-body">
+                            <span class="type-badge">Suelos</span>
+                            <h4>Epoxi para Garajes y Parkings</h4>
+                            <p>Resina epoxídica de alta resistencia para soleras de hormigón que no desprenden polvo,
+                                facilitan el lavado y resisten el tráfico de neumáticos calientes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fases del Proceso -->
+        <section class="process-steps-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="badge-tag">MÉTODO PROFESIONAL</span>
+                    <h2>NUESTRO MÉTODO DE TRABAJO</h2>
+                    <p class="subtitle">Orden, máxima protección de tu espacio y limpieza exhaustiva al finalizar</p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-box">
+                        <div class="step-number">01</div>
+                        <h4>Protección Exhaustiva</h4>
+                        <p>Cubrimos suelos, rodapiés, enchufes, carpintería y muebles con plásticos y cinta de carrocero
+                            para cero salpicaduras.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">02</div>
+                        <h4>Saneado y Masillado</h4>
+                        <p>Reparación de grietas, fisuras, agujeros y zonas con desconchones mediante masilla elástica y
+                            posterior lijado fino.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">03</div>
+                        <h4>Imprimación Fijadora</h4>
+                        <p>Aplicación de una base selladora para unificar la absorción de la pared y asegurar una
+                            adherencia inalterable.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">04</div>
+                        <h4>Aplicación de Capas</h4>
+                        <p>Mano de fondo y mano de terminación con rodillos profesionales o pistola airless para una
+                            cubrición 100% uniforme.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">05</div>
+                        <h4>Revisión y Limpieza</h4>
+                        <p>Retirada de todas las protecciones, repaso detallado de remates y entrega de la estancia
+                            completamente limpia y lista.</p>
+                    </div>
+                </div>
+
+                <!-- Banner de Contacto Directo -->
+                <div class="cta-service-box">
+                    <h3>¿Necesitas pintar tu casa, local o fachada?</h3>
+                    <p>Llámanos o escríbenos para valorar los metros a pintar y entregarte un presupuesto detallado sin
+                        compromiso.</p>
+                    <div class="cta-service-btns">
+                        <a href="https://wa.me/34642962096?text=Hola%20Fabián,%20solicito%20presupuesto%20para%20pintura"
+                            target="_blank" rel="noopener" class="btn-primary">
+                            Consultar con Fabián (WhatsApp)
+                        </a>
+                        <a href="https://wa.me/34606079971?text=Hola%20Oscar,%20solicito%20presupuesto%20para%20pintura"
+                            target="_blank" rel="noopener" class="btn-secondary"
+                            style="border-color:#ec4899; color:#f472b6;">
+                            Consultar con Oscar (WhatsApp)
+                        </a>
+                        <a href="../contacto.html" class="btn-primary" style="background-color:#ffffff; color:#0b1329;">
+                            Formulario de Contacto
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-bottom-bar" style="border: none; background: transparent; padding: 30px 0;">
+            <div class="bottom-flex">
+                <p class="copyright-text">&copy; 2026 <strong>Hormigones y Pavimentos Los Primos</strong>. Todos los
+                    derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="../../index.html">Volver al Inicio</a>
+                    <span>•</span>
+                    <a href="../contacto.html">Contacto</a>
+                    <span>•</span>
+                    <a href="../login.html">Panel Administrador</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

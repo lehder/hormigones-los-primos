@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hormigón Impreso y Pavimentos Continuos | Los Primos</title>
+    <meta name="description"
+        content="Especialistas en soleras de hormigón impreso y pulido de alta resistencia. Variedad de moldes, texturas de madera, pizarra o adoquín y resinas protectoras.">
+
+    <!-- Estilos (subiendo dos niveles a ../../css/) -->
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/header-footer.css">
+    <link rel="stylesheet" href="../../css/services.css">
+
+    <style>
+        /* Estilos propios de la página individual de servicio */
+        .service-hero-detail {
+            background-color: #0b1329;
+            background-image:
+                radial-gradient(ellipse at 70% 40%, rgba(22, 36, 71, 0.9), rgba(11, 19, 41, 0.98)),
+                repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 2px, transparent 2px, transparent 40px),
+                repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 2px, transparent 2px, transparent 40px);
+            padding: 60px 0 80px 0;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .service-hero-detail h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.4rem);
+            font-weight: 900;
+            letter-spacing: 1px;
+            margin-bottom: 12px;
+        }
+
+        .service-hero-detail p {
+            color: #cbd5e1;
+            font-size: 1.15rem;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .detail-body-section {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+
+        /* Grid de Contenido Principal + Ficha Técnica */
+        .detail-grid {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 50px;
+            align-items: start;
+            margin-bottom: 80px;
+        }
+
+        .detail-text h2 {
+            font-size: 2rem;
+            color: #0f172a;
+            margin-bottom: 18px;
+            font-weight: 900;
+        }
+
+        .detail-text p {
+            color: #475569;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .tech-specs-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            border-left: 5px solid #f59e0b;
+        }
+
+        .tech-specs-card h3 {
+            font-size: 1.3rem;
+            color: #0f172a;
+            margin-bottom: 20px;
+            font-weight: 800;
+        }
+
+        .spec-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.95rem;
+        }
+
+        .spec-item:last-child {
+            border-bottom: none;
+        }
+
+        .spec-label {
+            color: #64748b;
+            font-weight: 600;
+        }
+
+        .spec-value {
+            color: #0f172a;
+            font-weight: 800;
+            text-align: right;
+        }
+
+        /* Galería de Moldes y Texturas */
+        .patterns-section {
+            background-color: #f8fafc;
+            padding: 80px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .patterns-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .pattern-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+            transition: transform 0.3s ease;
+        }
+
+        .pattern-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .pattern-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .pattern-card .p-body {
+            padding: 16px;
+            text-align: center;
+        }
+
+        .pattern-card h4 {
+            font-size: 1.1rem;
+            color: #0f172a;
+            margin-bottom: 6px;
+        }
+
+        .pattern-card p {
+            color: #64748b;
+            font-size: 0.88rem;
+        }
+
+        /* Pasos del Proceso Constructivo */
+        .steps-section {
+            padding: 80px 0;
+        }
+
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+
+        .step-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 24px;
+            position: relative;
+        }
+
+        .step-number {
+            font-size: 2.2rem;
+            font-weight: 900;
+            color: #f59e0b;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+
+        .step-box h4 {
+            font-size: 1.15rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+        }
+
+        .step-box p {
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        /* CTA Bloque */
+        .cta-service-box {
+            background: linear-gradient(135deg, #0b1329, #162447);
+            border-radius: 14px;
+            padding: 50px 30px;
+            color: #ffffff;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-service-box h3 {
+            font-size: 2rem;
+            color: #fbbf24;
+            margin-bottom: 12px;
+            font-weight: 900;
+        }
+
+        .cta-service-box p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 30px auto;
+        }
+
+        .cta-service-btns {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 900px) {
+            .detail-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- NAVEGACIÓN SUPERIOR FLOTANTE                    -->
+    <!-- ============================================== -->
+    <header style="background-color: #0b1329; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <nav class="header-nav" style="padding: 18px 0;">
+            <div class="nav-wrapper">
+                <a href="../../index.html" class="nav-logo-text">LOS PRIMOS</a>
+
+                <button class="mobile-toggle" id="menuToggle" aria-label="Abrir Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-list" id="navLinks">
+                    <li><a href="../../index.html">Inicio</a></li>
+                    <li><a href="../../index.html#nosotros">Sobre Nosotros</a></li>
+                    <li class="dropdown-item">
+                        <a href="../../index.html#servicios" class="dropdown-toggle active">Servicios ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="hormigon-impreso.html" class="active">Hormigón Impreso</a></li>
+                            <li><a href="cesped-artificial.html">Césped Artificial</a></li>
+                            <li><a href="rehabilitacion-suelos.html">Mantenimiento de Suelos</a></li>
+                            <li><a href="pintura-casas-locales.html">Pintura de Casas y Locales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../contacto.html">Contacto</a></li>
+                    <li><a href="../login.html" class="admin-pill">Acceso Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero del Servicio -->
+    <section class="service-hero-detail">
+        <div class="container">
+            <span class="badge-tag">MÁXIMA DURABILIDAD Y ESTILO</span>
+            <h1>HORMIGÓN IMPRESO Y PULIDO</h1>
+            <p>Pavimentos continuos de alto impacto visual, resistencia mecánica insuperable y cero mantenimiento para
+                chalets, entradas y zonas comerciales.</p>
+        </div>
+    </section>
+
+    <!-- Cuerpo de Detalles -->
+    <main class="detail-body-section">
+        <div class="container">
+
+            <div class="detail-grid">
+                <div class="detail-text">
+                    <h2>¿Qué es el Hormigón Impreso y por qué elegirlo?</h2>
+                    <p>
+                        El <strong>hormigón impreso</strong> es una solera continua de hormigón armado cuya superficie
+                        recibe un tratamiento especial en fresco mediante la incorporación de corindón, pigmentos
+                        colorantes de alta pureza y moldes de estampación que imitan a la perfección materiales nobles
+                        como la piedra natural, la pizarra, el adoquín rústico o la madera.
+                    </p>
+                    <p>
+                        A diferencia de los pavimentos tradicionales de baldosas o adoquines sueltos, el hormigón
+                        impreso conforma una <strong>placa monolítica compacta</strong> que impide el nacimiento de
+                        malas hierbas, elimina el riesgo de hundimientos por el peso de vehículos y tolera derrames
+                        accidentales de aceites y grasas.
+                    </p>
+                    <p>
+                        En <strong>Hormigones Los Primos</strong> cuidamos cada etapa del proceso: desde la preparación
+                        del terreno y el armado con mallazo electrosoldado y fibra de polipropileno anti-fisuras, hasta
+                        el sellado final con resinas acrílicas que realzan el color y protegen contra las heladas y los
+                        rayos ultravioleta.
+                    </p>
+                </div>
+
+                <!-- Ficha Técnica -->
+                <aside class="tech-specs-card">
+                    <h3>Ficha Técnica del Servicio</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Espesor recomendado:</span>
+                        <span class="spec-value">10 a 15 cm (según uso)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Resistencia del hormigón:</span>
+                        <span class="spec-value">Hormigón H-200 / H-250</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Refuerzo estructural:</span>
+                        <span class="spec-value">Mallazo + Fibras de polipropileno</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Acabado superficial:</span>
+                        <span class="spec-value">Resina protectora brillo o mate</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Propiedades:</span>
+                        <span class="spec-value">Antideslizante e impermeable</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Garantía:</span>
+                        <span class="spec-value">Garantía por escrito</span>
+                    </div>
+                </aside>
+            </div>
+
+        </div>
+
+        <!-- Sección de Moldes y Acabados -->
+        <section class="patterns-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="badge-tag">VARIEDAD DE TEXTURAS</span>
+                    <h2>MOLDES Y ACABADOS DISPONIBLES</h2>
+                    <p class="subtitle">Personaliza tu pavimento eligiendo el dibujo y la tonalidad que mejor encajen
+                        con tu vivienda</p>
+                </div>
+
+                <div class="patterns-grid">
+                    <!-- Textura 1 -->
+                    <div class="pattern-card">
+                        <img src="https://images.unsplash.com/photo-1590381105924-c72589b9ef3f?auto=format&fit=crop&w=500&q=80"
+                            alt="Molde Madera en Hormigón">
+                        <div class="p-body">
+                            <h4>Imitación Madera</h4>
+                            <p>Vetas y relieves idénticos a los tablones naturales de exterior sin astillas ni
+                                pudrición.</p>
+                        </div>
+                    </div>
+
+                    <!-- Textura 2 -->
+                    <div class="pattern-card">
+                        <img src="https://images.unsplash.com/photo-1584463699042-4f7f504e9c7d?auto=format&fit=crop&w=500&q=80"
+                            alt="Molde Pizarra de Hormigón">
+                        <div class="p-body">
+                            <h4>Piedra Pizarra</h4>
+                            <p>Placas grandes de piedra natural ideales para terrazas modernas y bordes de piscina.</p>
+                        </div>
+                    </div>
+
+                    <!-- Textura 3 -->
+                    <div class="pattern-card">
+                        <img src="https://images.unsplash.com/photo-1518640467707-6811f4a6ab73?auto=format&fit=crop&w=500&q=80"
+                            alt="Molde Adoquín Rústico">
+                        <div class="p-body">
+                            <h4>Adoquín Clásico</h4>
+                            <p>El encanto de las calzadas europeas tradicionales con la durabilidad del hormigón masivo.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Textura 4 -->
+                    <div class="pattern-card">
+                        <img src="https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=500&q=80"
+                            alt="Molde Manta / Piedra de Río">
+                        <div class="p-body">
+                            <h4>Piedra Inglesa / Sillería</h4>
+                            <p>Patrón simétrico y elegante perfecto para rampas de garaje y accesos residenciales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Proceso Constructivo Paso a Paso -->
+        <section class="steps-section">
+            <div class="container">
+                <div class="section-title text-center">
+                    <span class="badge-tag">MÉTODO DE TRABAJO</span>
+                    <h2>NUESTRO PROCESO CONSTRUCTIVO</h2>
+                    <p class="subtitle">Rigurosidad técnica en cada fase para asegurar un suelo perfecto durante décadas
+                    </p>
+                </div>
+
+                <div class="steps-grid">
+                    <div class="step-box">
+                        <div class="step-number">01</div>
+                        <h4>Preparación y Encofrado</h4>
+                        <p>Nivelación del terreno, colocación de guías, encofrado perimetral y compactación de la base
+                            de áridos.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">02</div>
+                        <h4>Armado y Vertido</h4>
+                        <p>Colocación del mallazo de acero, adición de fibras de polipropileno y vertido uniforme de
+                            hormigón de planta.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">03</div>
+                        <h4>Coloración y Alisado</h4>
+                        <p>Espolvoreo de endurecedores de cuarzo y pigmentos minerales, fratasando la superficie hasta
+                            dejarla uniforme.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">04</div>
+                        <h4>Estampado con Moldes</h4>
+                        <p>Aplicación del desencofrante y estampado manual de los moldes elegidos logrando el relieve
+                            deseado.</p>
+                    </div>
+
+                    <div class="step-box">
+                        <div class="step-number">05</div>
+                        <h4>Corte de Juntas y Sellado</h4>
+                        <p>Corte mecánico de juntas de retracción, lavado a presión y aplicación de doble capa de resina
+                            protectora.</p>
+                    </div>
+                </div>
+
+                <!-- Banner de Contacto Directo -->
+                <div class="cta-service-box">
+                    <h3>¿Quieres un presupuesto exacto para tu proyecto?</h3>
+                    <p>Indícanos los metros cuadrados aproximados y te asesoramos sobre el mejor molde y acabado para tu
+                        espacio.</p>
+                    <div class="cta-service-btns">
+                        <a href="https://wa.me/34642962096?text=Hola%20Fabián,%20solicito%20presupuesto%20para%20hormigón%20impreso"
+                            target="_blank" rel="noopener" class="btn-primary">
+                            Consultar con Fabián (WhatsApp)
+                        </a>
+                        <a href="https://wa.me/34606079971?text=Hola%20Oscar,%20solicito%20presupuesto%20para%20hormigón%20impreso"
+                            target="_blank" rel="noopener" class="btn-secondary"
+                            style="border-color:#fbbf24; color:#fbbf24;">
+                            Consultar con Oscar (WhatsApp)
+                        </a>
+                        <a href="../contacto.html" class="btn-primary" style="background-color:#ffffff; color:#0b1329;">
+                            Formulario Web
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-bottom-bar" style="border: none; background: transparent; padding: 30px 0;">
+            <div class="bottom-flex">
+                <p class="copyright-text">&copy; 2026 <strong>Hormigones y Pavimentos Los Primos</strong>. Todos los
+                    derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="../../index.html">Volver al Inicio</a>
+                    <span>•</span>
+                    <a href="../contacto.html">Contacto</a>
+                    <span>•</span>
+                    <a href="../login.html">Panel Administrador</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../../js/main.js"></script>
+</body>
+
+</html>

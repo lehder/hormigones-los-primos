@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Presupuestos | Hormigones y Pavimentos Los Primos</title>
+    <meta name="description"
+        content="Pide tu presupuesto gratuito y sin compromiso para obras de hormigón impreso, césped artificial, suelos y pintura. Contacta con Fabián Villegas u Oscar Preciado.">
+
+    <!-- Hojas de Estilo (subiendo un nivel hacia ../css/) -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/header-footer.css">
+    <link rel="stylesheet" href="../css/services.css">
+
+    <style>
+        /* Estilos específicos para la página de Contacto */
+        .contact-page-hero {
+            background-color: #0b1329;
+            background-image:
+                radial-gradient(ellipse at 70% 40%, rgba(22, 36, 71, 0.9), rgba(11, 19, 41, 0.98)),
+                repeating-linear-gradient(60deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 2px, transparent 2px, transparent 40px),
+                repeating-linear-gradient(120deg, rgba(255, 255, 255, 0.04) 0px, rgba(255, 255, 255, 0.04) 2px, transparent 2px, transparent 40px);
+            padding: 60px 0 80px 0;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .contact-page-hero h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 900;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .contact-page-hero p {
+            color: #cbd5e1;
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .contact-main-section {
+            padding: 70px 0 90px 0;
+            background-color: #f8fafc;
+        }
+
+        .contact-container-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        /* Columna Izquierda: Tarjetas de Contacto */
+        .contact-direct-info {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .contact-card-box {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 28px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.04);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .contact-card-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            border-color: #cbd5e1;
+        }
+
+        .person-badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #b45309;
+            background-color: #fef3c7;
+            padding: 4px 10px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .person-heading {
+            font-size: 1.35rem;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 14px;
+        }
+
+        .contact-buttons-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-call {
+            flex: 1;
+            min-width: 140px;
+            background-color: #0f172a;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .btn-call:hover {
+            background-color: #1e293b;
+        }
+
+        .btn-wa {
+            flex: 1;
+            min-width: 140px;
+            background-color: #25d366;
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-align: center;
+            transition: background-color 0.2s;
+        }
+
+        .btn-wa:hover {
+            background-color: #1eb954;
+        }
+
+        .social-banner-box {
+            background: linear-gradient(135deg, #0b1329, #162447);
+            color: #ffffff;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .social-banner-box a {
+            color: #f59e0b;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        /* Columna Derecha: Formulario de Presupuesto */
+        .form-wrapper {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .form-wrapper h2 {
+            font-size: 1.6rem;
+            color: #0f172a;
+            margin-bottom: 8px;
+            font-weight: 900;
+        }
+
+        .form-wrapper p.form-subtitle {
+            color: #64748b;
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 700;
+            font-size: 0.88rem;
+            color: #334155;
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            color: #1e293b;
+            background-color: #f8fafc;
+            transition: border-color 0.2s, background-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f59e0b;
+            background-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.15);
+        }
+
+        .btn-submit {
+            width: 100%;
+            background-color: #f59e0b;
+            color: #0b1329;
+            border: none;
+            padding: 14px 20px;
+            font-size: 1.05rem;
+            font-weight: 800;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-submit:hover {
+            background-color: #d97706;
+            transform: translateY(-2px);
+        }
+
+        /* Mensajes de respuesta */
+        .form-feedback {
+            margin-top: 15px;
+            padding: 12px 16px;
+            border-radius: 6px;
+            font-size: 0.92rem;
+            display: none;
+        }
+
+        .form-feedback.success {
+            display: block;
+            background-color: #dcfce7;
+            color: #15803d;
+            border: 1px solid #86efac;
+        }
+
+        .form-feedback.error {
+            display: block;
+            background-color: #fee2e2;
+            color: #b91c1c;
+            border: 1px solid #fca5a5;
+        }
+
+        @media (max-width: 900px) {
+            .contact-container-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ============================================== -->
+    <!-- NAVEGACIÓN SUPERIOR FLOTANTE                    -->
+    <!-- ============================================== -->
+    <header style="background-color: #0b1329; border-bottom: 1px solid rgba(255,255,255,0.08);">
+        <nav class="header-nav" style="padding: 18px 0;">
+            <div class="nav-wrapper">
+                <a href="../index.html" class="nav-logo-text">LOS PRIMOS</a>
+
+                <button class="mobile-toggle" id="menuToggle" aria-label="Abrir Menú">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-list" id="navLinks">
+                    <li><a href="../index.html">Inicio</a></li>
+                    <li><a href="../index.html#nosotros">Sobre Nosotros</a></li>
+                    <li class="dropdown-item">
+                        <a href="../index.html#servicios" class="dropdown-toggle">Servicios ▾</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="servicios/hormigon-impreso.html">Hormigón Impreso</a></li>
+                            <li><a href="servicios/cesped-artificial.html">Césped Artificial</a></li>
+                            <li><a href="servicios/rehabilitacion-suelos.html">Mantenimiento de Suelos</a></li>
+                            <li><a href="servicios/pintura-casas-locales.html">Pintura de Casas y Locales</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                    <li><a href="login.html" class="admin-pill">Acceso Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero de la página de contacto -->
+    <section class="contact-page-hero">
+        <div class="container">
+            <span class="badge-tag">PRESUPUESTO GRATUITO</span>
+            <h1>CONTACTA CON NUESTRO EQUIPO</h1>
+            <p>Llámanos directamente, escríbenos por WhatsApp o déjanos los datos de tu obra para contactarte en menos
+                de 24 horas.</p>
+        </div>
+    </section>
+
+    <!-- Sección Principal de Contacto -->
+    <main class="contact-main-section">
+        <div class="container contact-container-grid">
+
+            <!-- Columna 1: Datos directos de la tarjeta -->
+            <aside class="contact-direct-info">
+
+                <!-- Fabián Villegas -->
+                <div class="contact-card-box">
+                    <span class="person-badge">Atención Telefónica y Obras</span>
+                    <h3 class="person-heading">Fabián Villegas</h3>
+                    <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 16px;">
+                        Consultas técnicas, visitas a obra y mediciones en terreno.
+                    </p>
+                    <div class="contact-buttons-row">
+                        <a href="tel:+34642962096" class="btn-call">📞 642 962 096</a>
+                        <a href="https://wa.me/34642962096?text=Hola%20Fabián,%20solicito%20presupuesto%20para%20un%20proyecto"
+                            target="_blank" rel="noopener" class="btn-wa">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Oscar Preciado -->
+                <div class="contact-card-box">
+                    <span class="person-badge">Gestión y Cotizaciones</span>
+                    <h3 class="person-heading">Oscar Preciado</h3>
+                    <p style="color: #64748b; font-size: 0.92rem; margin-bottom: 16px;">
+                        Elaboración de presupuestos, asesoría en materiales y fechas.
+                    </p>
+                    <div class="contact-buttons-row">
+                        <a href="tel:+34606079971" class="btn-call">📞 606 079 971</a>
+                        <a href="https://wa.me/34606079971?text=Hola%20Oscar,%20solicito%20presupuesto%20para%20un%20proyecto"
+                            target="_blank" rel="noopener" class="btn-wa">WhatsApp</a>
+                    </div>
+                </div>
+
+                <!-- Redes y Web Oficial -->
+                <div class="social-banner-box">
+                    <div>
+                        <strong style="display: block; font-size: 1.05rem;">Síguenos en Instagram</strong>
+                        <span style="font-size: 0.85rem; color: #94a3b8;">Mira nuestros últimos trabajos en vídeo</span>
+                    </div>
+                    <a href="https://instagram.com/hormigones_losprimos" target="_blank"
+                        rel="noopener">@hormigones_losprimos &rarr;</a>
+                </div>
+
+            </aside>
+
+            <!-- Columna 2: Formulario -->
+            <section class="form-wrapper">
+                <h2>SOLICITA TU PRESUPUESTO</h2>
+                <p class="form-subtitle">Rellena el formulario con los detalles y te responderemos a la brevedad.</p>
+
+                <form id="contactLeadForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientName">Nombre Completo *</label>
+                            <input type="text" id="clientName" name="name" required placeholder="Ej. Juan Pérez">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientPhone">Teléfono de Contacto *</label>
+                            <input type="tel" id="clientPhone" name="phone" required placeholder="Ej. 612 345 678">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="clientLocation">Ciudad / Localidad *</label>
+                            <input type="text" id="clientLocation" name="location" required
+                                placeholder="Ej. Madrid, Toledo, etc.">
+                        </div>
+                        <div class="form-group">
+                            <label for="clientService">Servicio de Interés *</label>
+                            <select id="clientService" name="service" required>
+                                <option value="" disabled selected>Selecciona un servicio</option>
+                                <option value="Hormigón Impreso y Pulido">Hormigón Impreso y Pulido</option>
+                                <option value="Césped Artificial">Césped Artificial</option>
+                                <option value="Rehabilitación y Mantenimiento de Suelos">Rehabilitación de Suelos
+                                </option>
+                                <option value="Pintura de Casas y Locales">Pintura de Casas y Locales</option>
+                                <option value="Varios / Reforma General">Varios / Reforma General</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientArea">Metros Cuadrados Aproximados (m²)</label>
+                        <input type="number" id="clientArea" name="area" placeholder="Ej. 80">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="clientMessage">Detalles del Proyecto o Dudas</label>
+                        <textarea id="clientMessage" name="message" rows="4"
+                            placeholder="Explícanos si es entrada de garaje, patio, terraza, estado actual del suelo, etc."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit" id="submitBtn">Enviar Solicitud de Presupuesto</button>
+
+                    <div id="formFeedback" class="form-feedback"></div>
+                </form>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- ============================================== -->
+    <!-- FOOTER                                         -->
+    <!-- ============================================== -->
+    <footer class="site-footer">
+        <div class="container footer-bottom-bar" style="border: none; background: transparent; padding: 30px 0;">
+            <div class="bottom-flex">
+                <p class="copyright-text">&copy; 2026 <strong>Hormigones y Pavimentos Los Primos</strong>. Todos los
+                    derechos reservados.</p>
+                <div class="legal-links">
+                    <a href="../index.html">Volver al Inicio</a>
+                    <span>•</span>
+                    <a href="login.html">Panel Administrador</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script src="../js/contact-form.js"></script>
+</body>
+
+</html>
