@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
   const menuToggle = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
   const dropdownToggle = document.querySelector('.dropdown-toggle');
@@ -47,4 +47,51 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+}); */
+
+document.addEventListener('DOMContentLoaded', () => {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  const dropdownToggle = document.querySelector('.dropdown-toggle');
+  const dropdownItem = document.querySelector('.dropdown-item');
+
+  // Abrir / Cerrar menú hamburguesa principal
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.toggle('active');
+      menuToggle.classList.toggle('open');
+    });
+  }
+
+  // Desplegar / Ocultar submenú de servicios al pulsar en móvil
+  if (dropdownToggle && dropdownItem) {
+    dropdownToggle.addEventListener('click', (e) => {
+      if (window.innerWidth <= 768) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownItem.classList.toggle('open');
+      }
+    });
+  }
+
+  // Cerrar menús al hacer clic en cualquier enlace final
+  document.querySelectorAll('.dropdown-menu a, .nav-list > li > a:not(.dropdown-toggle)').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (window.innerWidth <= 768) {
+        navLinks.classList.remove('active');
+        menuToggle.classList.remove('open');
+        if (dropdownItem) dropdownItem.classList.remove('open');
+      }
+    });
+  });
+
+  // Cerrar al pulsar fuera del menú
+  document.addEventListener('click', (e) => {
+    if (navLinks && navLinks.classList.contains('active') && !navLinks.contains(e.target) && !menuToggle.contains(e.target)) {
+      navLinks.classList.remove('active');
+      menuToggle.classList.remove('open');
+      if (dropdownItem) dropdownItem.classList.remove('open');
+    }
+  });
 });
