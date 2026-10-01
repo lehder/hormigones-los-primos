@@ -141,7 +141,7 @@
     display: block;
 }
 
-.mobile-toggle {
+/* .mobile-toggle {
     display: none;
     background: none;
     border: none;
@@ -154,6 +154,122 @@
     width: 26px;
     height: 3px;
     background-color: var(--text-white);
+} */
+
+/* ============================================================== */
+/* BOTÓN HAMBURGUESA Y ESTADOS                                    */
+/* ============================================================== */
+
+.mobile-toggle {
+    display: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
+    padding: 0;
+    z-index: 101;
+}
+
+.mobile-toggle span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Animación a 'X' cuando el menú está abierto */
+.mobile-toggle.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.mobile-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.mobile-toggle.open span:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* ============================================================== */
+/* COMPORTAMIENTO RESPONSIVE (Móviles: max-width 768px)          */
+/* ============================================================== */
+
+@media (max-width: 768px) {
+    .mobile-toggle {
+        display: flex;
+    }
+
+    .nav-list {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: #0b1329;
+        /* Mismo fondo marino que el header */
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 2px solid #f59e0b;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 20px 0;
+        gap: 0;
+
+        /* Oculto por defecto con transición suave */
+        display: none;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8);
+    }
+
+    .nav-list.active {
+        display: flex;
+    }
+
+    .nav-list li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-list a {
+        display: block;
+        padding: 14px 20px;
+        font-size: 1.05rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .nav-list a:hover {
+        background-color: rgba(245, 158, 11, 0.1);
+    }
+
+    .admin-pill {
+        display: inline-block;
+        margin: 15px auto 5px auto;
+        width: 80%;
+        border-radius: 6px;
+    }
+
+    /* Submenú de Servicios desplegable en móvil */
+    .dropdown-menu {
+        position: static;
+        display: none;
+        background-color: rgba(0, 0, 0, 0.35);
+        border: none;
+        box-shadow: none;
+        padding: 0;
+    }
+
+    .dropdown-menu.show {
+        display: block;
+    }
+
+    .dropdown-menu li a {
+        padding: 12px 20px 12px 40px;
+        font-size: 0.95rem;
+        color: #cbd5e1;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
 }
 
 /* 2. Cuerpo del Header: Operario + Título Réplica */
