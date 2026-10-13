@@ -23,3 +23,5 @@ app.use(express.static('../frontend'));
 app.listen(PORT, () => {
   console.log(`Servidor de Los Primos corriendo en http://localhost:${PORT}`);
 });
+
+export default app;
